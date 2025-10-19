@@ -8,7 +8,7 @@ Repository personale per organizzare appunti, esercizi e progetti del primo anno
 ### 🥇 1º Anno
 
 ### 1º Semestre
-  - [Programmazione 1](1_anno/programmazione_I/)
+  - [Programmazione 1](programmazione_I/)
   - [Architettura degli Elaboratori](1_anno/architettura_degli_elaboratori/)
   - [Algebra_Lineare_e_Geometria](1_anno/algebra_lineare_e_geometria/)
   - [Strutture_Discrete](1_anno/strutture_discrete/)
@@ -19,3 +19,4 @@ Repository personale per organizzare appunti, esercizi e progetti del primo anno
   - [Fondamenti_di_informatica](1_anno/fondamenti_di_informatica)
 
 - - -
+
