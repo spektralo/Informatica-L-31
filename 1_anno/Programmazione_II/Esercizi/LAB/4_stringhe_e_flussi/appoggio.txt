@@ -1,0 +1,8 @@
+aldo 123456
+franco 234567
+giorgio 345678
+marconi 987654432
+pietro 2342342
+valeri 123456789
+vittorio 456789
+zemira 567890
