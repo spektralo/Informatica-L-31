@@ -96,5 +96,6 @@
 - **NoSQL:** CouchDB, MongoDB.  
 ù
 
-## 💾 Struttura del repository
+
+
 
