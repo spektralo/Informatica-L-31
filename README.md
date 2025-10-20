@@ -16,14 +16,14 @@ Repository personale per organizzare appunti, esercizi e progetti dei tre anni d
 ### 2º Semestre
   - [Programmazione II](1_anno/Programmazione_II/)
   - [Elementi di Analisi Matematica I](1_anno/elementi_di_analisi_matematica_I/)
-  - [Fondamenti_di_informatica](1_anno/fondamenti_di_informatica)
+  - [Fondamenti di informatica](1_anno/fondamenti_di_informatica)
  
 - - -
 ### 🥈 2º Anno
 
 ###  1º Semestre
-  - [Basi_di_dati](2_anno/basi_di_dati)
-  - [Interazione_e_Multimedia](2_anno/interazione_e_multimedia)
+  - [Basi di dati](2_anno/basi_di_dati)
+  - [Interazione e Multimedia](2_anno/interazione_e_multimedia)
   - [Algoritmi](2_anno/algoritmi)
   - [Elementi di Analisi Matematica I](2_anno/elementi_di_analisi_matematica_I/)
 
