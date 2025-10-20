@@ -33,9 +33,18 @@ Repository personale per organizzare appunti, esercizi e progetti dei tre anni d
   - [Ingegneria_del_Software](2_anno/ingegneria_del_software)
 
 ### 🥉 3º Anno
-- [Crittografia](3_anno/crittografia/)
+
+###  1º Semestre
+- [IT Law](3_anno/it_law/)
 - [Digital Forensics](3_anno/digital_forensics/)
-- [Tirocinio](3_anno/tirocinio/)
+- [Vulnerability Assesment & Penetration Testing](3_anno/VAPT/)
+- [Metodi Matematici e Statistici](3_anno/metodi_matematici/)
+- [Fisica](3_anno/fisica/)
+
+
+  ###  2º Semestre
+- [Sistemi Centrali](3_anno/sistemi_centrali/)
+- [Internet Security](3_anno/internet_security/)
 - [Tesi](3_anno/tesi/)
 
 ---
