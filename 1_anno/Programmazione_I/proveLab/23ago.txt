@@ -1,0 +1,12 @@
+A123 Banana 15
+B234 Mela 10
+C345 Pera 25
+D456 Ananas 35
+E567 Uva 20
+F678 Arancia 45
+G789 Limone 5
+H890 Fragola 50
+I901 Cocomero 12
+J012 Kiwi 30
+K123 Melone 40
+L234 Papaya 22

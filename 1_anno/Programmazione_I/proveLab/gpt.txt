@@ -1,0 +1,8 @@
+A1234 Zucchero 25
+B5678 Farina 12
+C9101 Latte 40
+D1213 Riso 33
+E1415 Pane 10
+F1617 Uova 55
+G1819 Olio 47
+H2021 Sale 30
