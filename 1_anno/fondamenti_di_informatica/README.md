@@ -1,7 +1,7 @@
 # Fondamenti di Informatica
 **Corso di Laurea Triennale in Informatica (L-31)**  
 **Curriculum:** Cybersecurity e Digital Forensics  
-**Docente:** Prof. Barbanera & Madonia
+**Docenti:** Prof. Barbanera & Madonia
 
 **Studente:** Cristofero Paolo Viavattene  
 **Università degli Studi di Catania**
@@ -86,6 +86,7 @@ Riflessione sul ruolo dell’informatico in un contesto globale:
 - Opportunità di formazione e lavoro all’estero (*Erasmus*, tirocini, collaborazioni internazionali).
 
 ---
+
 
 
 
