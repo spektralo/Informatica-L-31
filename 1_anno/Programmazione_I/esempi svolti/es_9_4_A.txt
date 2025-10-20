@@ -1,0 +1,48 @@
+Leggi V 
+Leggi N
+Leggi M
+Leggi A 
+Leggi k 
+Leggi w 
+
+i<--0 
+c<--0
+
+// TOT: NxM + k-1 iterazioni
+
+// k-1 iterazioni
+max<--A[0]
+t<--1
+while(t<k)  do 
+    if(A[t]>max) then
+	max<--A[t]
+    endif 
+    t<--t+1    
+endwhile 
+
+// N x M iterazioni 
+while(i<N) do // visita per righe  
+  j<--0
+  s<--0 
+  while(j<M) do // visita di tutti gli elementi della riga i
+    if(V[i][j]>max) then 
+	s<--s+1
+    endif
+    j<--j+1
+  endwhile
+  if(s>=w) then 
+    c<--c+1
+  endif
+
+  if(c>=1) then
+    i<--N
+  else
+    i<--i+1
+  endif 
+endwhile
+
+if(c>=1) then 
+  Stampa true 
+else
+  Stampa false
+endif 

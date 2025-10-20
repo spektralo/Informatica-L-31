@@ -1,0 +1,36 @@
+Leggi V 
+Leggi N
+Leggi M
+Leggi A 
+Leggi k 
+Leggi w 
+
+i<--0 
+c<--0 
+
+while(i<N) do // visita per righe  
+  j<--0
+  s<--0 
+  while(j<M) do // visita di tutti gli elementi della riga i
+    q<--0
+    f<--true
+    while(q<k) do // confronto di V[i][j] con ogni elemento di A
+      if(V[i][j] <= A[q]) then
+	f<--false
+      endif
+      q<--q+1
+    endwhile
+    if(f=true) then 
+      s<--s+1
+    endif
+    j<--j+1
+  endwhile
+  if(s>=w) then 
+    c<--c+1
+  endif      
+  i<--i+1 
+endwhile
+
+if(c>=1) then 
+  Stampa true 
+endif 

@@ -1,0 +1,33 @@
+LEggi V 
+Leggi N 
+Leggi M 
+Leggi W 
+Leggi L 
+
+i<--0
+while(i<N) do
+    j<--1 
+    max<--V[i][0]
+    min<--V[i][0]
+    while(j<M) do 
+	if(max<=V[i][j]) then 
+	    max<--V[i][j]
+	endif
+
+	if(min>=V[i][j]) then 
+	    min<--V[i][j]
+	endif
+	j<--j+1
+    endwhile
+    c<--0
+    q<--0
+    while(q<L) do 
+	if(W[q]>=min) then
+	    if(W[q]<=max) then
+		c<--c+1
+	    endif
+	endif
+    endwhile 
+    Stampa c
+    i<--i+1  
+endwhile
