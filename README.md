@@ -28,9 +28,9 @@ Repository personale per organizzare appunti, esercizi e progetti dei tre anni d
   - [Elementi di Analisi Matematica I](2_anno/elementi_di_analisi_matematica_I/)
 
 ###  2º Semestre
-  - [Reti_di_Calcolatori](2_anno/reti_di_calcolatori)
-  - [Sistemi_Operativi](2_anno/sistemi_operativi)
-  - [Ingegneria_del_Software](2_anno/ingegneria_del_software)
+  - [Reti di Calcolatori](2_anno/reti_di_calcolatori)
+  - [Sistemi Operativi](2_anno/sistemi_operativi)
+  - [Ingegneria del Software](2_anno/ingegneria_del_software)
 
 - - -
 ### 🥉 3º Anno
