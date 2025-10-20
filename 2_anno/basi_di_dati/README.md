@@ -94,7 +94,8 @@
 - **Relazionali:** MySQL  
 - **Interfacce e tecnologie web:** integrazione con PHP, JavaScript e Ajax.  
 - **NoSQL:** CouchDB, MongoDB.  
-ù
+
+
 
 
 
