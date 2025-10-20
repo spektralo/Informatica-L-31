@@ -8,16 +8,16 @@ Repository personale per organizzare appunti, esercizi e progetti dei tre anni d
 ### 🥇 1º Anno
 
 ### 1º Semestre
-  - [Programmazione 1](1_anno/Programmazione_I/)
+  - [Programmazione I](1_anno/Programmazione_I/)
   - [Architettura degli Elaboratori](1_anno/architettura_degli_elaboratori/)
-  - [Algebra_Lineare_e_Geometria](1_anno/algebra_lineare_e_geometria/)
-  - [Strutture_Discrete](1_anno/strutture_discrete/)
+  - [Algebra Lineare e Geometria](1_anno/algebra_lineare_e_geometria/)
+  - [Strutture Discrete](1_anno/strutture_discrete/)
 
 ### 2º Semestre
-  - [Programmazione 2](1_anno/Programmazione_II/)
-  - [Element di Analisi Matematica 1](1_anno/elementi_di_analisi_matematica_1/)
+  - [Programmazione II](1_anno/Programmazione_II/)
+  - [Elementi di Analisi Matematica I](1_anno/elementi_di_analisi_matematica_I/)
   - [Fondamenti_di_informatica](1_anno/fondamenti_di_informatica)
-
+ 
 - - -
 ### 🥈 2º Anno
 
@@ -25,7 +25,7 @@ Repository personale per organizzare appunti, esercizi e progetti dei tre anni d
   - [Basi_di_dati](2_anno/basi_di_dati)
   - [Interazione_e_Multimedia](2_anno/interazione_e_multimedia)
   - [Algoritmi](2_anno/algoritmi)
-  - [Element di Analisi Matematica 2](2_anno/elementi_di_analisi_matematica_2/)
+  - [Elementi di Analisi Matematica I](2_anno/elementi_di_analisi_matematica_I/)
 
 ###  2º Semestre
   - [Reti_di_Calcolatori](2_anno/reti_di_calcolatori)
