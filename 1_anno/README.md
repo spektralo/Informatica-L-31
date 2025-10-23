@@ -9,15 +9,16 @@ Repository personale per organizzare appunti, esercizi e progetti del primo anno
 
 ### 1º Semestre
   - [Programmazione 1](Programmazione_I/)
-  - [Architettura degli Elaboratori](1_anno/architettura_degli_elaboratori/)
-  - [Algebra_Lineare_e_Geometria](1_anno/algebra_lineare_e_geometria/)
-  - [Strutture_Discrete](1_anno/strutture_discrete/)
+  - [Architettura degli Elaboratori](architettura_degli_elaboratori/)
+  - [Algebra_Lineare_e_Geometria](algebra_lineare_e_geometria/)
+  - [Strutture_Discrete](strutture_discrete/)
 
 ### 2º Semestre
-  - [Programmazione 2](1_anno/programmazione_II/)
-  - [Elementi di Analisi Matematica 1](1_anno/elementi_di_analisi_matematica_1/)
-  - [Fondamenti_di_informatica](1_anno/fondamenti_di_informatica)
+  - [Programmazione 2](programmazione_II/)
+  - [Elementi di Analisi Matematica 1](elementi_di_analisi_matematica_1/)
+  - [Fondamenti_di_informatica](fondamenti_di_informatica)
 
 - - -
+
 
 
