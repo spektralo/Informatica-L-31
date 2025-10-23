@@ -14,11 +14,12 @@ Repository personale per organizzare appunti, esercizi e progetti del primo anno
   - [Strutture_Discrete](strutture_discrete/)
 
 ### 2º Semestre
-  - [Programmazione 2](programmazione_II/)
+  - [Programmazione 2](Programmazione_II/)
   - [Elementi di Analisi Matematica 1](elementi_di_analisi_matematica_1/)
   - [Fondamenti_di_informatica](fondamenti_di_informatica)
 
 - - -
+
 
 
 
