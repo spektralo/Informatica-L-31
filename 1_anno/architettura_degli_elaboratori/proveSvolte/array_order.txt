@@ -1,0 +1,48 @@
+array		dcd		0,1,2,3,4,5,6,7,8,9
+array_b		fill		20
+
+            MOV     R0, #9               ; Numero confronti (10 elementi -> 9 confronti)
+            LDR     R1, =array
+            MOV     R4, #1               ; Stato ordine: 1 = ordinato, 0 = disordinato
+
+check_loop
+            CMP     R0, #0
+            BEQ     fine_check
+
+            LDR     R2, [R1]
+            LDR     R3, [R1, #4]
+
+            CMP     R2, R3
+            BGT     disordinato
+
+            ADD     R1, R1, #4
+            SUB     R0, R0, #1
+            B       check_loop
+
+disordinato
+            MOV     R4, #0               ; Array non ordinato
+            B       fine_check           ; Esci dal ciclo
+
+fine_check
+            CMP     R4, #1               ; Se ordinato, crea nuovo array
+            BNE     end_prog
+
+            MOV     R0, #5               ; Numero elementi da copiare
+            LDR     R1, =array
+            LDR     R6, =array_b
+            MOV     R5, #0               ; Contatore array_b (opzionale)
+
+copy_loop
+            CMP     R0, #0
+            BEQ     end_prog
+
+            LDR     R2, [R1], #4
+            STR     R2, [R6], #4
+
+            ADD     R5, R5, #1
+            SUB     R0, R0, #1
+            B       copy_loop
+
+end_prog
+
+

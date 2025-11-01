@@ -1,0 +1,28 @@
+array		dcd		23,255,7,6,254,164,4,136,22,9
+			
+array_bits	fill		40
+			
+			MOV		R0, #10
+			LDR		R1, =array
+			
+			MOV		R3, #0
+			LDR		R4, =array_bits
+			
+loop
+			CMP		R0, #0
+			BEQ		end_loop
+			
+			LDR		R2, [R1], #4
+			
+			AND		R5, R2, #0x88     ; verifica bit 3 e 7
+			CMP		R5, #0x88
+			BNE		next_elem
+			
+			STR		R2, [R4], #4
+			ADD		R3, R3, #1
+			
+next_elem
+			SUB		R0, R0, #1
+			B		loop
+			
+end_loop

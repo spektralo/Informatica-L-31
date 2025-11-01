@@ -1,0 +1,38 @@
+array_input	DCD		16, 9, 12, 20, 8, 3
+			
+array_mul		FILL		24
+			
+			;		R0 = lunghezza array = 6
+			;		R1 = ptr array
+			;		R2 = i-esimo elemento array
+			;
+			;		R3 = lunghezza array_mul = 0
+			;		R4 = ptr array_mul
+			;		R5 = temp
+			
+			MOV		R0, #6
+			LDR		R1, =array_input
+			
+			MOV		R3, #0
+			LDR		R4, =array_mul
+			
+loop
+			CMP		R0, #0
+			BEQ		end_loop
+			
+			LDR		R2, [R1], #4
+			
+			AND		R5, R2, #3 ; mul di quattro
+			
+			CMP		R5, #0	 ; se mod = 0, allora divisibile
+			BEQ		multiplo
+			
+next_elem
+			SUB		R0, R0, #1
+			B		loop
+			
+multiplo
+			STR		R2, [R4], #4
+			ADD		R3, R3, #1
+			B		next_elem
+end_loop

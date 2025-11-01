@@ -1,0 +1,51 @@
+array	dcd		0,1,2,3,4,5,6,7,8,9
+		
+array_inf	fill		40
+array_sup	fill		40
+		
+		;		R0 = lunghezza array
+		;		R1 = puntatore array
+		;		R2 = elemento corrente
+		
+		;		R3 = costante k
+		
+		;		R4 = lunghezza array_inf
+		;		R5 = puntatore array_inf
+		
+		;		R6 = lunghezza array_sup
+		;		R7 = puntatore array_sup
+		
+		MOV		R0, #10
+		LDR		R1, =array
+		
+		MOV		R3, #5
+		
+		MOV		R4, #0
+		LDR		R5, =array_inf
+		
+		MOV		R6, #0
+		LDR		R7, =array_sup
+		
+loop
+		CMP		R0, #0
+		BEQ		end_loop
+		
+		LDR		R2, [R1], #4
+		
+		CMP		R2, R3
+		BLT		store_inf
+		
+		STR		R2, [R7], #4
+		ADD		R6, R6, #1
+		
+		B		next_elem
+		
+store_inf
+		STR		R2, [R5], #4
+		ADD		R4, R4, #1
+		
+next_elem
+		SUB		R0, R0, #1
+		B		loop
+		
+end_loop

@@ -1,0 +1,51 @@
+array			dcd		13, 27, 32, 8, 128, 64, 3, 4, 32, 1
+result_media		fill		4
+result_max		fill		4
+result_min		fill		4
+				
+				;		R0 = lunghezza vettore
+				;		R1 = puntatore al vettore
+				;		R2 = elemento corrente
+				;		R3 = massimo
+				;		R4 = minimo
+				;		R5 = registro temporaneo (somma per la media)
+				
+				MOV		R0, #10
+				LDR		R1, =array
+				LDR		R3, [R1], #4      ; carica il primo elemento -> massimo
+				MOV		R4, R3            ; minimo = primo elemento
+				SUB		R0, R0, #1        ; decrementa il contatore
+				
+max_min_loop
+				CMP		R0, #0
+				BEQ		end_max_min_loop
+				
+				LDR		R2, [R1], #4
+				CMP		R2, R3
+				BLE		skip_temp_max
+				MOV		R3, R2             ; aggiorna massimo
+skip_temp_max
+				CMP		R2, R4
+				BGE		skip_temp_min
+				MOV		R4, R2             ; aggiorna minimo
+skip_temp_min
+				SUB		R0, R0, #1
+				B		max_min_loop
+				
+end_max_min_loop
+				;		Calcolo media = (max + min) / 2 senza modificare il massimo originale
+				MOV		R5, R3             ; copia del massimo
+				ADD		R5, R5, R4         ; somma max + min
+				LSR		R5, R5, #1         ; divisione per 2
+				
+				;		Salvataggio dei risultati in memoria
+				LDR		R0, =result_max
+				STR		R3, [R0]
+				
+				LDR		R0, =result_min
+				STR		R4, [R0]
+				
+				LDR		R0, =result_media
+				STR		R5, [R0]
+				
+end_program

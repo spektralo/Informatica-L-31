@@ -1,0 +1,56 @@
+array_v			dcd		2345, 356, 112, 35, 6, 6691, 3245
+array_counts		fill		28              ; 7 elementi da 4 byte = 28 byte
+				
+start
+				MOV		R0, #7                  ; Lunghezza array_v
+				LDR		R1, =array_v            ; Puntatore a array_v
+				LDR		R7, =array_counts       ; Puntatore a array_counts
+				
+scan_loop
+				CMP		R0, #0
+				BEQ		calcola_massimo
+				
+				LDR		R2, [R1], #4            ; Carico elemento successivo di array_v
+				MOV		R4, #32                 ; Contatore di bit (32 iterazioni)
+				MOV		R6, #0                  ; Contatore di bit a 1
+				
+shift_loop
+				CMP		R4, #0
+				BEQ		end_shift_loop
+				
+				AND		R5, R2, #1              ; Controllo il bit meno significativo
+				ADD		R6, R6, R5              ; Se è 1, incremento il contatore
+				
+				LSR		R2, R2, #1              ; Shift a destra di 1 bit
+				SUB		R4, R4, #1
+				B		shift_loop
+				
+end_shift_loop
+				STR		R6, [R7], #4            ; Salvo il conteggio in array_counts
+				
+				SUB		R0, R0, #1
+				B		scan_loop
+				
+				;		------------------------------------------------------------------------
+				;		Calcolo del massimo in array_counts
+				;		------------------------------------------------------------------------
+				
+calcola_massimo
+				MOV		R0, #7
+				LDR		R1, =array_counts
+				LDR		R3, [R1], #4            ; Primo elemento come massimo iniziale
+				
+max_loop
+				SUB		R0, R0, #1
+				CMP		R0, #0
+				BEQ		fine_programma
+				
+				LDR		R2, [R1], #4            ; Prossimo elemento di array_counts
+				CMP		R2, R3
+				BLE		skip_update_max
+				MOV		R3, R2                  ; Aggiorno massimo se necessario
+				
+skip_update_max
+				B		max_loop
+				
+fine_programma

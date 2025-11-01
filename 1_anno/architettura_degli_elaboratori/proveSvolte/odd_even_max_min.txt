@@ -1,0 +1,97 @@
+array			dcd		13,27,32,48,50,62,77,81,92,56
+				
+array_even		fill		40
+array_odd			fill		40
+				
+max				fill		4
+min				fill		4
+				
+				;		R0 = lunghezza array
+				;		R1 = puntatore array
+				;		R2 = elemento i-esimo
+				
+				;		R3 = lunghezza even
+				;		R4 = puntatore even
+				
+				;		R5 = lunghezza odd
+				;		R6 = puntatore odd
+				
+				MOV		R0, #10
+				LDR		R1, =array
+				
+				MOV		R3, #0
+				LDR		R4, =array_even
+				
+				MOV		R5, #0
+				LDR		R6, =array_odd
+				
+scan_loop
+				CMP		R0, #0
+				BEQ		end_scan_loop
+				
+				LDR		R2, [R1], #4
+				AND		R7, R2, #1
+				CMP		R7, #0
+				BEQ		is_even
+				
+				STR		R2, [R6], #4
+				ADD		R5, R5, #1
+				B		next_element
+				
+is_even
+				STR		R2, [R4], #4
+				ADD		R3, R3, #1
+				
+next_element
+				SUB		R0, R0, #1
+				B		scan_loop
+				
+end_scan_loop
+				
+				CMP		R3, R5
+				BGT		use_even
+				
+				LDR		R1, =array_odd
+				MOV		R0, R5
+				B		calc_max_min
+				
+use_even
+				LDR		R1, =array_even
+				MOV		R0, R3
+				
+calc_max_min
+				;		R0 = lunghezza sotto-array selezionato
+				;		R1 = puntatore sotto-array selezionato
+				;		R2 = elemento i-esimo
+				;		R4 = massimo
+				;		R6 = minimo
+				
+				LDR		R4, [R1], #4       ; primo elemento come massimo
+				MOV		R6, R4             ; minimo = massimo iniziale
+				
+max_min_loop
+				CMP		R0, #1
+				BEQ		end_max_min_loop
+				
+				LDR		R2, [R1], #4
+				
+				CMP		R2, R4             ; confronto con massimo
+				BLE		skip_update_max
+				MOV		R4, R2             ; aggiorna massimo
+				
+skip_update_max
+				CMP		R2, R6             ; confronto con minimo
+				BGE		skip_update_min
+				MOV		R6, R2             ; aggiorna minimo
+				
+skip_update_min
+				SUB		R0, R0, #1
+				B		max_min_loop
+				
+end_max_min_loop
+				
+				LDR		R0, =max
+				STR		R4, [R0]
+				
+				LDR		R0, =min
+				STR		R6, [R0]

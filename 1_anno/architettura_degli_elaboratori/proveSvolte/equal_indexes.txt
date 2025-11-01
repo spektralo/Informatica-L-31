@@ -1,0 +1,46 @@
+array_a		dcd		0,1,2,3,4,5,6,7,8,9
+			
+array_b		dcd		4,27,81,6,9,32,20,62,8,30
+			
+array_c		fill		40
+
+			MOV		R0, #10             ; length of array_a
+			LDR		R1, =array_a        ; pointer to array_a
+			
+			MOV		R3, #10             ; length of array_b
+			LDR		R4, =array_b        ; pointer to array_b
+			
+			MOV		R6, #0              ; length of array_c = 0
+			LDR		R7, =array_c        ; pointer to array_c
+			
+outer_loop
+			CMP		R3, #0              ; check if all elements of array_b processed
+			BEQ		end_program
+			
+			LDR		R5, [R4]            ; load current element of array_b
+			MOV		R8, #10             ; counter for array_a
+			LDR		R9, =array_a        ; reset pointer to array_a
+			
+inner_loop
+			CMP		R8, #0              ; check if all elements of array_a processed
+			BEQ		next_outer          ; move to next element of array_b
+			
+			LDR		R2, [R9], #4        ; load element from array_a and increment pointer
+			
+			CMP		R2, R5              ; compare array_a[i] with array_b[j]
+			BEQ		insert_match
+			
+			SUB		R8, R8, #1          ; decrement inner loop counter
+			B		inner_loop
+			
+insert_match
+			STR		R5, [R7], #4        ; store matching element in array_c
+			ADD		R6, R6, #1          ; increment array_c length
+			B		next_outer          ; skip remaining checks for this element
+			
+next_outer
+			ADD		R4, R4, #4          ; move to next element of array_b
+			SUB		R3, R3, #1
+			B		outer_loop
+			
+end_program

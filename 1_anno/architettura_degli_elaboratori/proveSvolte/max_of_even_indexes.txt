@@ -1,0 +1,87 @@
+array		dcd		1,2,3,4,5,6,7,8,9,0
+			
+array_lenght	fill		4
+array_evn		fill		40
+			
+			;R0		= lenght array
+			;R1		= ptr array
+			
+			;R2		= i-esimo elem array
+			
+			;R3		= lenght array_evn
+			;R4		= ptr array_evn
+			
+			MOV		R0, #0
+			LDR		R1, =array
+			
+			MOV		R3, #0
+			LDR		R4, =array_evn
+			
+			
+loop
+			LDR		R2, [R1], #4
+			CMP		R2, #0
+			
+			BEQ		end_arr
+			
+			ADD		R0, R0, #1
+			B		loop
+			
+end_arr
+			LDR		R5, =array_lenght
+			STR		R0, [R5]
+			
+			;
+			;R0		= dimensione array
+			;R1		= ptr array
+			;R2		= elemento i-esimo di vett_a
+			
+			;R3		= lenght array_evn
+			;R4		= ptr array_evn
+			;
+			
+			LDR		R1, =array
+copy_loop
+			CMP		R0, #0
+			BLE		end_copy_loop
+			
+			LDR		R2, [R1], #8
+			STR		R2, [R4], #4
+			
+			ADD		R3, R3, #1
+			SUB		R0, R0, #2
+			
+			B		copy_loop
+			
+end_copy_loop
+			;
+			;
+			;		R3 = lunghezza vett_b
+			;
+			;
+			;		R0 = lunghezza vett_b
+			;		R1 = ptr a vett_b
+			;		R2 = elemento i-esimo di vett_b
+			;		R4 = massimo temporaneo
+			;
+			
+			
+			SUB		R0, R3, #1
+			LDR		R1, =array_evn
+			
+			LDR		R4, [R1], #4
+max_loop
+			CMP		R0, #0
+			BEQ		end_max_loop
+			
+			LDR		R2, [R1], #4
+			
+			CMP		R2,  R4
+			BLE		skip
+			
+			MOV		R4, R2
+skip
+			SUB		R0, R0, #1
+			B		max_loop
+			
+end_max_loop

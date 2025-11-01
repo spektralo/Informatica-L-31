@@ -1,0 +1,67 @@
+			;		Array di partenza
+array		dcd		10,27,30,81,92,55,44,33,40,100
+			
+array_tens	fill		40
+array_not_tens	fill		40
+			
+			;		Registro di utilizzo:
+			;		R0  = lunghezza array (contatore elementi rimanenti)
+			;		R1  = puntatore array
+			;		R2  = elemento corrente
+			;		R3  = lunghezza array_tens
+			;		R4  = puntatore array_tens
+			;		R5  = lunghezza array_not_tens
+			;		R6  = puntatore array_not_tens
+			;		R7  = dividendo (copia di R2)
+			;		R8  = divisore (10)
+			;		R9  = quoziente
+			;		R10 = resto
+			
+			MOV		R0, #10
+			LDR		R1, =array
+			
+			MOV		R3, #0
+			LDR		R4, =array_tens
+			
+			MOV		R5, #0
+			LDR		R6, =array_not_tens
+			
+loop
+			CMP		R0, #0              ; Se R0 == 0 abbiamo finito
+			BEQ		end_loop
+			
+			LDR		R2, [R1], #4        ; Carica elemento corrente e avanza puntatore
+			
+			MOV		R7, R2              ; Dividendo = elemento corrente
+			MOV		R8, #10             ; Divisore = 10
+			MOV		R9, #0              ; Quoziente = 0
+			
+div_loop
+			CMP		R7, R8
+			BLT		end_div_loop
+			
+			SUB		R7, R7, R8          ; Sottrai 10 dal dividendo
+			ADD		R9, R9, #1          ; Incrementa quoziente
+			B		div_loop
+			
+end_div_loop
+			MOV		R10, R7             ; Il resto rimane in R7
+			
+			CMP		R10, #0             ; Se resto == 0, multiplo di 10
+			BNE		not_tens
+			
+			;		Inserisci in array_tens
+			STR		R2, [R4], #4
+			ADD		R3, R3, #1
+			B		next_elem
+			
+not_tens
+			;		Inserisci in array_not_tens
+			STR		R2, [R6], #4
+			ADD		R5, R5, #1
+			
+next_elem
+			SUB		R0, R0, #1          ; Decrementa contatore elementi
+			B		loop
+			
+end_loop

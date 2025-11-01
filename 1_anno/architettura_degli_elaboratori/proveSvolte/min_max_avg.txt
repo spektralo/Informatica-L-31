@@ -1,0 +1,60 @@
+array			dcd		13,27,32,8,128,64,3,4,32,1
+media			fill		4    ; spazio per la media
+max_value			fill		4    ; spazio per il massimo
+min_value			fill		4    ; spazio per il minimo
+				
+				MOV		R0, #10           ; lunghezza array
+				LDR		R1, =array        ; puntatore all'array
+				
+				LDR		R3, [R1], #4      ; primo elemento -> max provvisorio
+				MOV		R4, R3            ; primo elemento -> min provvisorio
+				
+				MOV		R5, R3            ; somma inizializzata col primo elemento
+				SUB		R0, R0, #1        ; abbiamo già letto il primo elemento
+				
+max_min_loop
+				CMP		R0, #0
+				BEQ		end_max_min_loop
+				
+				LDR		R2, [R1], #4      ; carica prossimo elemento
+				ADD		R5, R5, R2        ; aggiorna somma
+				
+				CMP		R2, R3
+				BLE		skip_temp_max
+				MOV		R3, R2            ; aggiorna max
+skip_temp_max
+				
+				CMP		R2, R4
+				BGE		skip_temp_min
+				MOV		R4, R2            ; aggiorna min
+skip_temp_min
+				
+				SUB		R0, R0, #1
+				B		max_min_loop
+				
+end_max_min_loop
+				
+				;		Calcola media (somma R5 / 10)
+				MOV		R0, #10
+				MOV		R6, #0            ; quoziente (media)
+div_loop
+				CMP		R5, R0
+				BLT		end_div_loop
+				
+				SUB		R5, R5, R0
+				ADD		R6, R6, #1
+				B		div_loop
+				
+end_div_loop
+				
+				;		Salva massimo, minimo e media
+				LDR		R7, =max_value
+				STR		R3, [R7]
+				
+				LDR		R7, =min_value
+				STR		R4, [R7]
+				
+				LDR		R7, =media
+				STR		R6, [R7]
+				
+end_program
